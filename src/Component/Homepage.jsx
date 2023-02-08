@@ -1,40 +1,33 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector} from'react-redux'
 import axios from 'axios';
+import { getDataSuccess } from '../Redux/action';
+import Style from './Homepage.module.css'
 
 export const Homepage=()=> {
+   const dispatch = useDispatch()
+
+  const [name, setName] = useState('')
+  const data = useSelector((store)=> store)
+  console.log("DDDDDDD",data)
+
+const getData=()=>{
+    axios.get('https://random-word-api.herokuapp.com/word')
+.then((res)=> dispatch(getDataSuccess(res.data)))
+.catch((err)=> console.log(err))
+}
+useEffect(()=>{
+   getData()
+},[])
+// console.log(name,"NANNNNNN")
 
 
-    const options = {
-      method: 'GET',
-      url: 'https://random-words5.p.rapidapi.com/getMultipleRandom',
-      params: {count: '5'},
-      headers: {
-        'X-RapidAPI-Key': '1ba1cfd69amsh1f2982a506326afp18aff0jsn2b1911e6d9f2',
-        'X-RapidAPI-Host': 'random-words5.p.rapidapi.com'
-      }
-    };
-    
-    axios.request(options).then(function (response) {
-        console.log(response.data);
-    }).catch(function (error) {
-        console.error(error);
-    });
-// const getData=()=>{
-//     axios.request(options)
-// .then((res)=> console.log(res.data))
-// .catch((err)=> console.log(err))
-// }
-// useEffect(()=>{
-//    getData()
-// },[])
-// axios.request(options).then(function (response) {
-// 	console.log(response.data);
-// }).catch(function (error) {
-// 	console.error(error);
-// });
 return  (
    <div>
       <h1>RANDOM API</h1>
+      <div>
+        <input className={Style.inputField} type="text" onChange={(e)=> setName(e.target.value)} />
+      </div>
    </div>
 )
 }
