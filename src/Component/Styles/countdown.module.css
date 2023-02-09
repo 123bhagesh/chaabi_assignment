@@ -1,0 +1,15 @@
+.countDown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.countDown > div {
+  display: flex;
+  align-items: center;
+}
+.countDown > div > h4 {
+  font-size: larger;
+  font-weight: 400;
+}

@@ -1,0 +1,30 @@
+.inputsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.inputsContainer > div {
+  display: flex;
+  align-items: center;
+}
+.inputsContainer > div > input {
+  width: 22px;
+  height: 40px;
+  font-size: larger;
+  font-weight: 400;
+  border: none;
+  outline: none;
+}
+
+/* for hiding input tag arrow on hover */
+.inputsContainer > div > input::-webkit-outer-spin-button,
+.inputsContainer > div > input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.inputsContainer > div > input:active {
+  border: none;
+  outline: none;
+}

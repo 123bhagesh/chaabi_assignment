@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import { Homepage } from './Component/Homepage';
 import axios from 'axios';
+import Timer from './Component/Count-Down/Timer';
+
 
 function App() {
 
@@ -15,8 +17,9 @@ function App() {
 // });
   return (
     <div className="App">
-      <h1>AAAAAAAAAAAa</h1>
       <Homepage/>
+      <Timer/>
+      
     </div>
   );
 }
