@@ -14,19 +14,24 @@ function TypingAccuracy() {
   useEffect(() => {
      if(word == userInput){
       getData()
+      setUserInput('')
+      
       // setAccuracy(100);
      }
-     else if(word.length == userInput.length){
-      setAccuracy(
-        (calculateAccuracy(word, userInput) / word.length) * 100
-        );
-     }
+    //  else if(word.length == userInput.length){
+    //   setAccuracy(
+    //     (calculateAccuracy(word, userInput) / word.length) * 100
+    //     );
+    //  }
   }, [word,userInput]);
 
   const handleTyping = (e) => {
     setUserInput(e.target.value);
+        setAccuracy(
+        (calculateAccuracy(word, userInput) / word.length) * 100
+        );
+     }
   
-  };
  
   const calculateAccuracy = (word, userInput) => {
     let count = 0;
@@ -44,7 +49,7 @@ function TypingAccuracy() {
   return (
     <div>
       <h2>{word}</h2>
-      <input type="text" onKeyUp={handleTyping} />
+      <input type="text" value={userInput} onChange={handleTyping} />
       <p>Accuracy: {accuracy}%</p>
     </div>
   );
