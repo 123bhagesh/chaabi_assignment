@@ -11,7 +11,8 @@ export const Homepage=()=> {
 //   const[timer, setTimer] = useState(0)
   const [time, setTime] = useState(0)
   const [ wordPM, setWordPM] = useState(40)
-  
+  let [acc, setAcc] = useState(0)
+   
   let data = useSelector((store)=> store.data)
 //   console.log("DDDDDDD",data[0].split(''))
  
@@ -29,30 +30,49 @@ useEffect(()=>{
    }
 },[name,data])
 
+
 const handleInput=(e)=>{
    setName(e.target.value)
-   
-}
-
-let count=0
-let nn ='';
-if(data.length > 0){
-   nn = data[0].split('')
-}
-
-for(let a=0; a<nn.length; a++){
-   if(nn[a] != name[a]){
-      count++
+   if(e.target.value.length == data.length ){
+      // handleAccuracy()
+      console.log("HELLLL")
+   }
+   else{
+      console.log("OKKK")
    }
 }
-let accuracy = (nn.length - count )/nn.length *100
-// console.log(accuracy,"ACCCCCCCCCCCCC",count)
-// let newAcc= useRef(0)
-if(name.length == nn.length){
-   // newAcc =accuracy
-   localStorage.setItem('Accc',JSON.stringify(accuracy))
-}
 
+const handleAccuracy=()=>{
+
+   // console.log("HELLO")
+   // let count=0
+   // let nn ='';
+   // if(data.length > 0){
+   //    nn = data[0].split('')
+   // }
+   
+   // for(let a=0; a<nn.length; a++){
+   //    if(nn[a] != name[a]){
+   //       count++
+   //    }
+   // }
+   
+   // let accuracy= 0;
+   // if(name.length == nn.length){
+   //    // newAcc =accuracy
+   //    accuracy = ((nn.length - count )/nn.length *100)
+   //    // setAcc(accuracy)
+   // }
+   // console.log("ACCC",accuracy)
+
+   
+}
+// useEffect(()=>{
+
+// },[name,data])
+
+// setAcc([...acc,accuracy])
+// console.log(acc,"AAAAAAAA")
 // let cc = localStorage.getItem(JSON.parse('Accc'))
 // console.log("NEWACC", cc)
 
@@ -60,7 +80,7 @@ if(name.length == nn.length){
 
 return  (
    <div className={Style.container}>
-      <h1>Typing Test App</h1>
+      <p>Typing Speed Test App</p>
       {/* <h2>{timer}</h2> */}
             {/* <button onClick={onClickReset}>Reset</button>
             <button onClick={pause}>Pause</button> */}
@@ -72,11 +92,11 @@ return  (
          <h2>{data}</h2>
       </div>
       <div>
-        <input className={Style.inputField} value={name} type="text" placeholder='type word' onChange={handleInput} />
+        <input className={Style.inputField} type="text" placeholder='type word' onChange={handleInput} />
       </div>
       <div className={Style.bottomDiv}>
          <p>WPM:{}</p>
-          <p>Accuracy : {}%</p>
+          <p>Accuracy : {acc}%</p>
       </div>
 
    </div>

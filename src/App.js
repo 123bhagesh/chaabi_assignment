@@ -3,6 +3,9 @@ import './App.css';
 import { Homepage } from './Component/Homepage';
 import axios from 'axios';
 import Timer from './Component/Count-Down/Timer';
+import Accuracy from './Component/TypingAccuracy';
+import { NewAcc } from './Component/NewAcc';
+import TypingAccuracy from './Component/TypingAccuracy';
 
 
 function App() {
@@ -17,8 +20,12 @@ function App() {
 // });
   return (
     <div className="App">
-      <Homepage/>
+      {/* <Homepage/> */}
       {/* <Timer/> */}
+      {/* <Accuracy/> */}
+      {/* <NewAcc/> */}
+      <TypingAccuracy/>
+      
       
     </div>
   );

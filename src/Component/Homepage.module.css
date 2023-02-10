@@ -1,5 +1,13 @@
 .container{
+    padding: 22px;
     background-color: rgb(98, 4, 180);
+    height: 650px;
+
+}
+.container>p{
+    font-size: 48px;
+    font-weight: 700;
+    color: #4affff;
 }
 .inputField{
     width: 490px;
