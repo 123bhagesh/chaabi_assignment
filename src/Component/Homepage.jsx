@@ -28,13 +28,12 @@ useEffect(()=>{
       setName('')
    }
 },[name,data])
-let c=0
+
 const handleInput=(e)=>{
    setName(e.target.value)
-   c++
+   
 }
 
-console.log("CCCCCCC",c)
 let count=0
 let nn ='';
 if(data.length > 0){
@@ -79,6 +78,7 @@ return  (
          <p>WPM:{}</p>
           <p>Accuracy : {}%</p>
       </div>
+
    </div>
 )
 }
