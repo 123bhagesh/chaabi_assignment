@@ -66,7 +66,7 @@ const CountDown = (props) => {
       </div>
       <div className={styles.lengthDiv}>
         {
-          seconds == 0 && minutes==0 ? <h4>Word length: {length}</h4> : <></>
+          seconds == 0 && minutes==0 ? <h4>No of Key Press: {length}</h4> : <></>
         }
       </div>
     </div>
