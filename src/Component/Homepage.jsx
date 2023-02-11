@@ -31,42 +31,37 @@ useEffect(()=>{
 },[name,data])
 
 
-const handleInput=(e)=>{
-   setName(e.target.value)
-   if(e.target.value.length == data.length ){
-      // handleAccuracy()
-      console.log("HELLLL")
+// const handleInput=(e)=>{
+//    setName(e.target.value)
+//    if(e.target.value.length == data.length ){
+//       // handleAccuracy()
+//       console.log("HELLLL")
+//    }
+//    else{
+//       console.log("OKKK")
+//    }
+// }
+
+const handleInput = (e) => {
+   setUserInput(e.target.value);
+       setAccuracy(
+       (calculateAccuracy(word, userInput) / word.length) * 100
+       );
+    }
+ 
+
+ const calculateAccuracy = (word, userInput) => {
+   let count = 0;
+   for (let i = 0; i < word.length; i++) {
+     if (userInput[i] != word[i]) {
+       count++;
+     }
+   
    }
-   else{
-      console.log("OKKK")
-   }
-}
-
-const handleAccuracy=()=>{
-
-   // console.log("HELLO")
-   // let count=0
-   // let nn ='';
-   // if(data.length > 0){
-   //    nn = data[0].split('')
-   // }
-   
-   // for(let a=0; a<nn.length; a++){
-   //    if(nn[a] != name[a]){
-   //       count++
-   //    }
-   // }
-   
-   // let accuracy= 0;
-   // if(name.length == nn.length){
-   //    // newAcc =accuracy
-   //    accuracy = ((nn.length - count )/nn.length *100)
-   //    // setAcc(accuracy)
-   // }
-   // console.log("ACCC",accuracy)
-
-   
-}
+   console.log("COUNT", count)
+   let accuracy = word.length-count    
+   return accuracy;
+ };
 // useEffect(()=>{
 
 // },[name,data])
