@@ -59,8 +59,6 @@ const handleAccuracy=()=>{
 
 }
 
-// console.log("KEYPRWEEk",keyPress)
-
 return  (
    <div className={Style.container}>
       <p>Typing Speed Test App</p>
