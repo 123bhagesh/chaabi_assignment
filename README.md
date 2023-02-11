@@ -1,4 +1,4 @@
-# Typing App
+# Typeing App
 
 ### Live link -
 
