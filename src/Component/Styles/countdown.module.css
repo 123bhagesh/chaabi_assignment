@@ -2,7 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
+  color: aliceblue;
+  font-weight: 500;
+  margin-top: -40px;
 }
 
 .countDown > div {

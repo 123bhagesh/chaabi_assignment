@@ -1,22 +1,13 @@
 .timerContainer {
-  width: 500px;
-  margin: 2% auto 0 auto;
-  padding: 0.1% 0.5% 2% 0.5%;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 200px;
+  height: 65px;
+  margin: auto;
+  /* padding: 0.1% 0.5% 2% 0.5%; */
+  box-shadow: rgba(194, 182, 182, 0.35) 0px 5px 15px;
+  background-color: rgb(122, 121, 120);
+  margin-bottom: 20px;
+  margin-top: -10px;
 }
 
-.timerContainer button {
-  padding: 2%;
-}
-.startBtn {
-  background-color: rgb(26, 115, 232);
-  color: white;
-  border: 1px solid rgb(26, 115, 232);
-  margin-right: 10px;
-}
-.resetBtn {
-  color: rgb(26, 115, 232);
-  background-color: white;
-  border: 1px solid gray;
-}
+
 

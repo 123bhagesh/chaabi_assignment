@@ -18,5 +18,11 @@ const getDataFailure =() =>{
     type: types.GET_FAILURE
   }
 }
+const getLength=(payload)=>{
+  return{
+    type: types.GET_LENGHT,
+    payload
+  }
+}
 
-export { getDataRequest,getDataSuccess,getDataFailure};
+export { getDataRequest,getDataSuccess,getDataFailure,getLength};

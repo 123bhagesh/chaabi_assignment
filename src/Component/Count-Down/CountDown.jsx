@@ -1,24 +1,26 @@
 import React from 'react';
 import { useState, useRef, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 // import { toast } from 'react-toastify';
 import styles from '../Styles/countdown.module.css';
 
 //Reusable Count-Down component
 const CountDown = (props) => {
-  const { status, timeLimit } = props;
+  const { status, timeLimit,wordPM } = props;
 
   const timerId = useRef(null);
   const [seconds, setSeconds] = useState(timeLimit.seconds || 0);
-  const [minutes, setMinutes] = useState(timeLimit.minutes || 0);
+  const [minutes, setMinutes] = useState(timeLimit.minutes || 1);
   const [hour, setHour] = useState(timeLimit.hour || 0);
+  let length = useSelector((store)=> store.length)
 
   const start = () => {
     if (!timerId.current) {
       timerId.current = setInterval(() => {
-        setSeconds((seconds) => seconds + 1);
+        setSeconds((seconds) => seconds - 1);
       }, 1000);
     }
-    if ( minutes == 5 && seconds == 0) {
+    if (hour == 0 && minutes == 0 && seconds == 0) {
       clearInterval(timerId.current);
       // toast('⏰ Time is Expired');
     }
@@ -32,39 +34,28 @@ const CountDown = (props) => {
       setSeconds(59);
     }
   };
-  const pause = () => {
-    clearInterval(timerId.current);
-    timerId.current = null;
-  };
-  const reset = () => {
-    clearInterval(timerId.current);
-    timerId.current = null;
-    setSeconds(0);
-    setMinutes(0);
-    setHour(0);
-  };
+  let wpm;
+  if(seconds==1 && minutes==0){
+
+     wpm = length
+    console.log("WPMMM",wpm)
+    alert("STOP",{wpm})
+
+  }
+
 
   useEffect(() => {
-    if (status == 'PLAY') {
-      start();
-    }
-    if (status == 'PAUSE') {
-      pause();
-    }
+    start()
   }, [seconds, minutes, hour, status]);
-
-  //Clean Up Function
-  //becouse whenever our component is unmounted then it reset this four value
-  //1 - timerId.current = null;
-  //2 - setSeconds(0);
-  //3 - setMinutes(0);
-  //4 -  setHour(0);
 
   useEffect(() => {
     return () => {
       clearInterval(timerId.current);
     };
   }, []);
+
+
+
   return (
     <div className={styles.countDown}>
       {/* <div>
@@ -78,6 +69,9 @@ const CountDown = (props) => {
       <div>
         <h4>{seconds ? seconds : '00'}</h4>
         <p>s</p>
+      </div>
+      <div>
+        <h4>Word length: {wpm}</h4>
       </div>
     </div>
   );

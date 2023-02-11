@@ -1,11 +1,11 @@
 .container{
-    padding: 22px;
+    padding: 17px;
     background-color: rgb(98, 4, 180);
     height: 650px;
 
 }
 .container>p{
-    font-size: 48px;
+    font-size: 55px;
     font-weight: 700;
     color: #4affff;
 }
@@ -19,6 +19,7 @@
 .fristDiv >label{
     /* gap: 50px; */
     font-size: 19px;
+    color: beige;
     
 }
 .fristDiv >input{

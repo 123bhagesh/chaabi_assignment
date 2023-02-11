@@ -2,6 +2,7 @@ import * as types from "./actionTypes";
 
 const initalState = {
   data:[],
+  length:Number(0),
   isLoading:false,
   isError:false
 };
@@ -33,6 +34,12 @@ const reducer = (oldState = initalState, action) => {
             isLoading:false,
             isError:true
           }
+    }
+    case types.GET_LENGHT:{
+         return{
+          ...oldState,
+          length:oldState.length+ payload
+         }
     }
     default:
       return oldState;
