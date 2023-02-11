@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector} from'react-redux'
 import axios from 'axios';
 import { getDataSuccess, getLength } from '../Redux/action';
-import Style from './Homepage.module.css'
+import Style from './Styles/Homepage.module.css'
 import Timer from './Count-Down/Timer';
 
 export const Homepage=()=> {

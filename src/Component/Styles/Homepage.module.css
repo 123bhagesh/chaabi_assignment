@@ -1,11 +1,11 @@
 .container{
-    padding: 17px;
+    padding: 10px;
     background-color: rgb(98, 4, 180);
-    height: 650px;
+    height: 620px;
 
 }
 .container>p{
-    font-size: 55px;
+    font-size: 47px;
     font-weight: 700;
     color: #4affff;
 }
