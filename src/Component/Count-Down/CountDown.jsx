@@ -15,10 +15,10 @@ const CountDown = (props) => {
   const start = () => {
     if (!timerId.current) {
       timerId.current = setInterval(() => {
-        setSeconds((seconds) => seconds - 1);
+        setSeconds((seconds) => seconds + 1);
       }, 1000);
     }
-    if (hour == 0 && minutes == 0 && seconds == 0) {
+    if ( minutes == 5 && seconds == 0) {
       clearInterval(timerId.current);
       // toast('⏰ Time is Expired');
     }
@@ -67,10 +67,10 @@ const CountDown = (props) => {
   }, []);
   return (
     <div className={styles.countDown}>
-      <div>
+      {/* <div>
         <h4>{hour ? hour : '00'}</h4>
         <p>h</p>
-      </div>
+      </div> */}
       <div>
         <h4>{minutes ? minutes : '00'}</h4>
         <p>m</p>

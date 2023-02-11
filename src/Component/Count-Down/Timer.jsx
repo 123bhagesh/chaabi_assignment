@@ -10,7 +10,7 @@ import styles from '../Styles/timer.module.css';
 
 const Timer = () => {
   const [status, setStatus] = useState('');
-  const [timeLimit, setTimeLimit] = useState(null);
+  const [timeLimit, setTimeLimit] = useState(0);
   const [start, setStart] = useState(false);
 
   const handleStart = () => {

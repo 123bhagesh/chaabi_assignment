@@ -20,11 +20,11 @@ function App() {
 // });
   return (
     <div className="App">
-      {/* <Homepage/> */}
-      {/* <Timer/> */}
+      <Homepage/>
+      <Timer/>
       {/* <Accuracy/> */}
       {/* <NewAcc/> */}
-      <TypingAccuracy/>
+      {/* <TypingAccuracy/> */}
       
       
     </div>

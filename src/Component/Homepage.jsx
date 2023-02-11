@@ -11,65 +11,50 @@ export const Homepage=()=> {
 //   const[timer, setTimer] = useState(0)
   const [time, setTime] = useState(0)
   const [ wordPM, setWordPM] = useState(40)
-  let [acc, setAcc] = useState(0)
-   
-  let data = useSelector((store)=> store.data)
-//   console.log("DDDDDDD",data[0].split(''))
- 
+  const [userInput, setUserInput] = useState("");
+  const [accuracy, setAccuracy] = useState(0);
 
-const getData=()=>{
-    axios.get('https://random-word-api.herokuapp.com/word')
-.then((res)=> dispatch(getDataSuccess(res.data)))
+  const getData=()=>{
+   axios.get('https://random-word-api.herokuapp.com/word')
+.then((res)=> dispatch(getDataSuccess(res.data[0])))
 .catch((err)=> console.log(err))
-}
-useEffect(()=>{
-   // getData()
-      if(name== data){
-      getData()
-      setName('')
+} 
+
+
+
+  let data = useSelector((store)=> store.data.join(''))
+  console.log("DDDDDDD",data)
+useEffect(() => {
+   if(data.length == userInput.length){
+    getData()
+    setUserInput('')
+    
+    // setAccuracy(100);
    }
-},[name,data])
-
-
-// const handleInput=(e)=>{
-//    setName(e.target.value)
-//    if(e.target.value.length == data.length ){
-//       // handleAccuracy()
-//       console.log("HELLLL")
-//    }
-//    else{
-//       console.log("OKKK")
-//    }
-// }
+}, [data,userInput]);
 
 const handleInput = (e) => {
-   setUserInput(e.target.value);
-       setAccuracy(
-       (calculateAccuracy(word, userInput) / word.length) * 100
-       );
-    }
- 
-
- const calculateAccuracy = (word, userInput) => {
-   let count = 0;
-   for (let i = 0; i < word.length; i++) {
-     if (userInput[i] != word[i]) {
-       count++;
-     }
-   
+  setUserInput(e.target.value);
+      setAccuracy(
+      (calculateAccuracy(data, userInput) / data.length) * 100);
    }
-   console.log("COUNT", count)
-   let accuracy = word.length-count    
-   return accuracy;
- };
-// useEffect(()=>{
 
-// },[name,data])
 
-// setAcc([...acc,accuracy])
-// console.log(acc,"AAAAAAAA")
-// let cc = localStorage.getItem(JSON.parse('Accc'))
-// console.log("NEWACC", cc)
+const calculateAccuracy = (data, userInput) => {
+  let count = 0;
+  for (let i = 0; i < data.length; i++) {
+    if (userInput[i] != data[i]) {
+      count++;
+    }
+  
+  }
+  console.log("COUNT", count)
+  let accuracy = data.length-count    
+  return accuracy;
+};
+
+let fixedAccuracy = accuracy.toFixed(2)
+
 
 
 
@@ -87,11 +72,11 @@ return  (
          <h2>{data}</h2>
       </div>
       <div>
-        <input className={Style.inputField} type="text" placeholder='type word' onChange={handleInput} />
+        <input className={Style.inputField} type="text" placeholder='type word' value={userInput} onChange={handleInput} />
       </div>
       <div className={Style.bottomDiv}>
          <p>WPM:{}</p>
-          <p>Accuracy : {acc}%</p>
+          <p>Accuracy : {fixedAccuracy}%</p>
       </div>
 
    </div>
