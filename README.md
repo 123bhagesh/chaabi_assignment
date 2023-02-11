@@ -1,6 +1,6 @@
-# Typeing App
+# Typing App
 
-### Live link - https://typeing-app.netlify.app/
+### Live link - https://typing-app11.netlify.app/
 
 
 
