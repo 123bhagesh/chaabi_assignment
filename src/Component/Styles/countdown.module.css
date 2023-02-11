@@ -1,18 +1,24 @@
-.countDown {
+.countDownTime {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
   color: aliceblue;
   font-weight: 500;
-  margin-top: -40px;
+  margin-top: -30px;
 }
 
-.countDown > div {
+.countDownTime >div{
   display: flex;
   align-items: center;
 }
-.countDown > div > h4 {
+.countDownTime > div > h4 {
   font-size: larger;
   font-weight: 400;
+}
+h4{
+  color: white;
+}
+.lengthDiv{
+  margin-top: -35px;
 }

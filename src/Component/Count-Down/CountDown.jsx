@@ -10,7 +10,7 @@ const CountDown = (props) => {
 
   const timerId = useRef(null);
   const [seconds, setSeconds] = useState(timeLimit.seconds || 0);
-  const [minutes, setMinutes] = useState(timeLimit.minutes || 1);
+  const [minutes, setMinutes] = useState(timeLimit.minutes || 5);
   const [hour, setHour] = useState(timeLimit.hour || 0);
   let length = useSelector((store)=> store.length)
 
@@ -34,12 +34,8 @@ const CountDown = (props) => {
       setSeconds(59);
     }
   };
-  let wpm;
   if(seconds==1 && minutes==0){
-
-     wpm = length
-    console.log("WPMMM",wpm)
-    alert("STOP",{wpm})
+    alert("STOP Typing")
 
   }
 
@@ -58,20 +54,20 @@ const CountDown = (props) => {
 
   return (
     <div className={styles.countDown}>
-      {/* <div>
-        <h4>{hour ? hour : '00'}</h4>
-        <p>h</p>
-      </div> */}
-      <div>
-        <h4>{minutes ? minutes : '00'}</h4>
-        <p>m</p>
+      <div className={styles.countDownTime}>
+        <div>
+          <h4>{minutes ? minutes : '00'}</h4>
+          <p>m</p>
+        </div>
+        <div>
+          <h4>{seconds ? seconds : '00'}</h4>
+          <p>s</p>
+        </div>
       </div>
-      <div>
-        <h4>{seconds ? seconds : '00'}</h4>
-        <p>s</p>
-      </div>
-      <div>
-        <h4>Word length: {wpm}</h4>
+      <div className={styles.lengthDiv}>
+        {
+          seconds == 0 && minutes==0 ? <h4>Word length: {length}</h4> : <></>
+        }
       </div>
     </div>
   );

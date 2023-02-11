@@ -1,8 +1,7 @@
 .timerContainer {
   width: 200px;
-  height: 65px;
+  padding: 2px 0 10px ;
   margin: auto;
-  /* padding: 0.1% 0.5% 2% 0.5%; */
   box-shadow: rgba(194, 182, 182, 0.35) 0px 5px 15px;
   background-color: rgb(122, 121, 120);
   margin-bottom: 20px;
